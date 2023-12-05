@@ -174,13 +174,4 @@ if __name__ == "__main__":
     app = App()
     app.mainloop()
 
-#import nltk
-#nltk.download('punkt')
-#nltk.download('averaged_perceptron_tagger')
-#nltk.download('universal_tagset')
 
-#from nltk.tokenize import word_tokenize
-#from nltk.tag import pos_tag
-#from nltk.corpus import cmudict
-
-# Scarica il dizionario delle sillabe (CMU Pronouncing Dictionary)
