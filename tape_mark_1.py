@@ -10,7 +10,8 @@ nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('averaged_perceptron_tagger')
 from nltk.corpus import wordnet as wn
- 
+
+#variabile obsoleta
 versi = \
 [[" l accecante   /  globo  /  di fuoco  ", "1/4", "2/3", "1"],\
 [" si espande   /  rapidamente  ", "1/2", "3/4", "1"],\
@@ -134,50 +135,6 @@ class App(tk.Tk):
         #
 
 
-#~ ---------------------------------------------------------------------
-#~ Tape Mark I
-
-#~ La testa premuta sulla spalla, trenta volte
-#~ piu' luminoso del sole, io contemplo il loro ritorno
-#~ finche' non mosse le dita lentamente e, mentre la moltitudine
-#~ delle cose accade, alla sommita' della nuvola
-#~ esse tornano tutte, alla loro radice, e assumono
-#~ la ben nota forma di fungo cercando di afferrare.
-#~ 
-#~ I capelli tra le labbra, esse tornano tutte
-#~ alla loro radice, nell'accecante globo di fuoco
-#~ io contemplo il loro ritorno, finche' non muove le dita
-#~ lentamente, e malgrado che le cose fioriscano
-#~ assume la ben nota forma di fungo, cercando
-#~ di afferrare mentre la moltitudine delle cose accade.
-#~ 
-#~ Nell'accecante globo di fuoco io contemplo
-#~ il loro ritorno quando raggiunge la stratosfera mentre la moltitudine
-#~ delle cose accade, la testa premuta
-#~ sulla spalla: trenta volte piu' luminose del sole
-#~ esse tornano tutte alla loro radice, i capelli
-#~ tra le labbra assumono la ben nota forma di fungo.
-#~ 
-#~ Giacquero immobili senza parlare, trenta volte
-#~ piu' luminosi del sole essi tornano tutti
-#~ alla loro radice, la testa premuta sulla spalla
-#~ assumono la ben nota forma di fungo cercando
-#~ di afferrare, e malgrado che le cose fioriscano
-#~ si espandono rapidamente, i capelli tra le labbra.
-#~ 
-#~ Mentre la moltitudine delle cose accade nell'accecante
-#~ globo di fuoco, esse tornano tutte
-#~ alla loro radice, si espandono rapidamente, finche' non mosse
-#~ le dita lentamente quando raggiunse la stratosfera
-#~ e giacque immobile senza parlare, trenta volte
-#~ piu' luminoso del sole, cercando di afferrare.
-#~ 
-#~ Io contemplo il loro ritorno, finche' non mosse le dita
-#~ lentamente nell'accecante globo di fuoco:
-#~ esse tornano tutte alla loro radice, i capelli
-#~ tra le labbra e trenta volte piu' luminosi del sole
-#~ giacquero immobili senza parlare, si espandono
-#~ rapidamente cercando di afferrare la sommita'.
 if __name__ == "__main__":
     app = App()
     app.mainloop()
