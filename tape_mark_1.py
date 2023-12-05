@@ -9,6 +9,7 @@ from nltk import corpus, punkt
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('averaged_perceptron_tagger')
+nltk.download('tagsets')
 from nltk.corpus import wordnet as wn
 
 #variabile obsoleta
@@ -66,17 +67,20 @@ class App(tk.Tk):
 
         self.text_input_two = tk.Text(self.content_frame,
 	        height=10,
-            width=80).grid(row=4, column=0, sticky="WE", padx=40, pady=10)
+            width=80)
+        self.text_input_two.grid(row=4, column=0, sticky="WE", padx=40, pady=10)
         self.testo_three_label = tk.Label(self.content_frame,
             text="Testo gruppo 3",
             font=("Helvetica", 15)).grid(row=5, column=0)
         #
-        self.text_input_three = tk.Text(self.content_frame,height=10, width=50).grid(row=6, column=0, sticky="WE", padx=40, pady=10)
+        self.text_input_three = tk.Text(self.content_frame,height=10, width=50)
+        self.text_input_three.grid(row=6, column=0, sticky="WE", padx=40, pady=10)
         self.testo_four_label = tk.Label(self.content_frame,
             text="Testo gruppo 4",
             font=("Helvetica", 15)).grid(row=7, column=0)
         #
-        self.text_input_four = tk.Text(self.content_frame,height=10, width=50).grid(row=8, column=0, sticky="WE", padx=40, pady=10)
+        self.text_input_four = tk.Text(self.content_frame,height=10, width=50)
+        self.text_input_four.grid(row=8, column=0, sticky="WE", padx=40, pady=10)
 
         self.download_button = tk.Button(self.content_frame,text="Elabora",
             font=("Helvetica", 17),
@@ -84,10 +88,16 @@ class App(tk.Tk):
              sticky="WE", pady=10, padx=10)
 
     def elabora_text(self):
-        detect_text_ex=self.text_input_one.get(1.0, "end-1c")
-        x= detect(detect_text_ex)
-        c= nltk.pos_tag(nltk.word_tokenize(detect_text_ex))
-        z=c
+        detect_text_one=self.text_input_one.get(1.0, "end-1c")
+        language= detect(detect_text_one)
+        detect_text_two = self.text_input_two.get(1.0, "end-1c")
+        detect_text_three = self.text_input_three.get(1.0, "end-1c")
+        detect_text_four = self.text_input_four.get(1.0, "end-1c")
+        #word_tokenize toglie gli spazi e gli  a capo
+        analisi_logica= nltk.pos_tag(nltk.word_tokenize(detect_text_one))
+        for elem in analisi_logica:
+            print(nltk.help.upenn_tagset(elem[1]))
+
         # random.shuffle(versi)
         # strofa_uno = [None] * 10
         # strofa_uno[0] = versi[0]
