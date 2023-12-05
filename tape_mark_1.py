@@ -5,13 +5,21 @@ from tkinter.messagebox import showerror
 import random
 import sys
 import nltk
+import pyphen
 from nltk import corpus, punkt
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('tagsets')
+nltk.download('universal_tagset')
+#nltk.download('cmudict')
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
+from nltk.corpus import cmudict
 from nltk.corpus import wordnet as wn
 
+# Scarica il dizionario delle sillabe (CMU Pronouncing Dictionary)
+#pronouncing_dict = cmudict.dict()
 #variabile obsoleta
 versi = \
 [[" l accecante   /  globo  /  di fuoco  ", "1/4", "2/3", "1"],\
@@ -32,10 +40,24 @@ versi = \
 [" malgrado / che le cose  /  fioriscano    ", "1/2", "2/3", "3"],\
 [" esse tornano  / tutte    / alla loro radice   ", "2/3", "1/4", "3"]]
 
+
+dic = pyphen.Pyphen(lang='it_IT')
+
+def syllabize_word(word):
+    return dic.inserted(word).split('-')
+
+def syllabize_sentence(sentence):
+    tokens = nltk.word_tokenize(sentence)
+    syllables = {token: syllabize_word(token) for token in tokens}
+    return syllables
+
 #~ gruppo "1", 0-5: Diario di Hiroshima, di Michihito Hachiya
 #~ gruppo "2", 6-10: Il Mistero dell'ascensore, di Paul Goldwin
 #~ gruppo "3", 11-14: Tao te King, di Lao Tse
 class App(tk.Tk):
+
+
+
 
     def __init__(self):
         super().__init__()
@@ -95,9 +117,12 @@ class App(tk.Tk):
         detect_text_four = self.text_input_four.get(1.0, "end-1c")
         #word_tokenize toglie gli spazi e gli  a capo
         analisi_logica= nltk.pos_tag(nltk.word_tokenize(detect_text_one))
-        for elem in analisi_logica:
-            print(nltk.help.upenn_tagset(elem[1]))
+        #for elem in analisi_logica:
+           # print(nltk.help.upenn_tagset(elem[1]))
 
+        italian_sentence = detect_text_one
+        italian_syllables = syllabize_sentence(italian_sentence)
+        print(italian_syllables)
         # random.shuffle(versi)
         # strofa_uno = [None] * 10
         # strofa_uno[0] = versi[0]
@@ -148,3 +173,14 @@ class App(tk.Tk):
 if __name__ == "__main__":
     app = App()
     app.mainloop()
+
+#import nltk
+#nltk.download('punkt')
+#nltk.download('averaged_perceptron_tagger')
+#nltk.download('universal_tagset')
+
+#from nltk.tokenize import word_tokenize
+#from nltk.tag import pos_tag
+#from nltk.corpus import cmudict
+
+# Scarica il dizionario delle sillabe (CMU Pronouncing Dictionary)
